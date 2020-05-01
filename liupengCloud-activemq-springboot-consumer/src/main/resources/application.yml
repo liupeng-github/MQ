@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: liupengCloud-activemq-consumer
+  activemq:
+    broker-url: tcp://127.0.0.1:61616
+    user: admin
+    password: admin
+  jms:
+    pub-sub-domain: false #false表示Queue，true表示Topic
+
+server:
+  port: 61618
+
+#队列名称
+queueName: springboot-activemq-queue
+
+#Topic名称
+topicName: springboot-activemq-topic

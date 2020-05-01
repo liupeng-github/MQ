@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: liupengCloud-rabbitmq-consumer
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: admin
+    password: admin
+    listener:
+      direct:
+        retry:
+          enabled: true #开启重试
+          max-attempts: 5 #重试次数，默认为3次
+
+#------以下是Direct交换器(发布与订阅、完全匹配)------
+
+#设置order交换器的名称
+rabbitmq.config.exchange.order: order.direct
+
+#order队列名称
+rabbitmq.config.queue.order: order.message
+
+#order路由键
+rabbitmq.config.queue.order.routing.key: order.message.routing.key
+
+#设置log交换器的名称
+rabbitmq.config.exchange: log.direct
+
+#info队列名称
+rabbitmq.config.queue.info: log.info
+
+#info路由键
+rabbitmq.config.queue.info.routing.key: log.info.routing.key
+
+#error队列名称
+rabbitmq.config.queue.error: log.error
+
+#error路由键
+rabbitmq.config.queue.error.routing.key: log.error.routing.key
+
+#------以上是Direct交换器(发布与订阅、完全匹配)------
